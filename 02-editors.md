@@ -60,7 +60,7 @@ We will also use Jupyter (IPython) notebooks, but this does not remove the need 
 
 What terminal editor will you use? How did you make your decision?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> vim - I had to edit a few files with it when setting up this machine, so it's now the only of three I have any experience with, on top of being the apparent standard when it comes to text editors.
 
 --
 
@@ -68,6 +68,9 @@ What terminal editor will you use? How did you make your decision?
 
 What graphical editor will you use? How did you make your decision? What are some interesting features of your editor? What are some useful keyboard shortcuts for your editor? How do you customize your editor?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Spyder - I've been using Spyder for a little over six months now, but the initial decision was made in that it seemed to be the default IDE for Anaconda (on top of being held in high regard by the scientific community it was designed for). 
+ As far as features and shortcuts go, I'm a big fan of being able to use the '.' operator to help finish bits of code and the warning/error signs (left of the line numbers in the left margin) demarcating potential errors/conflicts in certain lines is like a spell-check for python. That said, I'm not entirely sure what is actually unique and/or interesting as Spdyer is the only IDE I've ever used. 
+ F5 (run script) would be the keyboard shortcut I use the most frequently, but I'm sure there are plenty of other useful ones I am forgetting or could stand to learn. 
+ As far as customization goes, I run Spyder with an editor pane and a console pane (the positions of which I occasionally juggle when visibility demands) and nothing else.
 
  

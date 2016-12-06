@@ -31,13 +31,14 @@ What do the following commands do:
 `ls -lah`  list all files/folders slightly less long format
 `ls -t`  sort by newest (modified) first
 `ls -Glp`  list files/folders without group names, long format, include / at end of subdirs.
+
 ---
 
 ###Q3.  More List Files in Unix  
 
 Explore these other [ls options](http://www.techonthenet.com/unix/basic/ls.php) and pick 5 of your favorites:
 
-> > REPLACE THIS TEXT WITH YOUR RESPONSE
+> > ls1 easy to see, -d only directories, -m could be useful to write > to a csv, -rm could be useful for same reason, -R displays subdirs as well
 
 ---
 

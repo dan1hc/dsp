@@ -46,7 +46,7 @@ Explore these other [ls options](http://www.techonthenet.com/unix/basic/ls.php) 
 
 What does `xargs` do? Give an example of how to use it.
 
-> > REPLACE THIS TEXT WITH YOUR RESPONSE
+> > xargs takes input from stdin and performs a command (argument, default echo) on it. So can be used in combo with | to pipe say `find -name "*.txt" | xargs rm` which will find all txt files in a directory and delete them.
 
  
 

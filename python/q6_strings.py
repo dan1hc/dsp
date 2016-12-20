@@ -18,7 +18,13 @@ def donuts(count):
     >>> donuts(99)
     'Number of donuts: many'
     """
-    raise NotImplementedError
+    if not count > 9:
+        return 'Number of donuts: '+str(count)
+    else:
+        return 'Number of donuts: many'
+        
+print(donuts(8))
+print(donuts(15))
 
 
 def both_ends(s):
@@ -37,7 +43,13 @@ def both_ends(s):
     >>> both_ends('xyz')
     'xyyz'
     """
-    raise NotImplementedError
+    if len(s) < 2:
+        new_string = ''
+    else:
+        new_string = s[:2]+s[-2:]
+    return new_string
+
+print(both_ends('monty python'))
 
 
 def fix_start(s):
@@ -56,7 +68,17 @@ def fix_start(s):
     >>> fix_start('donut')
     'donut'
     """
-    raise NotImplementedError
+    first_char = s[0]
+    def char_change(x):
+        if x == first_char:
+            return '*'
+        else:
+            return x
+            
+    new_str = s[0]+''.join([char_change(x) for x in s[1:]])
+    return new_str
+    
+print(fix_start('anagramS'))
 
 
 def mix_up(a, b):
@@ -74,8 +96,14 @@ def mix_up(a, b):
     >>> mix_up('pezzy', 'firm')
     'fizzy perm'
     """
-    raise NotImplementedError
-
+    a_firsts = [e for e in a[:2]]
+    a_firsts.extend([e for e in b[2:]])
+    b_firsts = [e for e in b[:2]]
+    b_firsts.extend([e for e in a[2:]])
+    
+    return ' '.join([''.join(b_firsts), ''.join(a_firsts)])
+    
+print(mix_up('octo', 'cat'))
 
 def verbing(s):
     """
@@ -91,8 +119,16 @@ def verbing(s):
     >>> verbing('do')
     'do'
     """
-    raise NotImplementedError
+    if len(s) < 3:
+        return s
+    else:
+        if s[-3:] == 'ing':
+            return s+'ly'
+        else:
+            return s+'ing'
 
+print(verbing('verbing'))
+print(verbing('verbs'))
 
 def not_bad(s):
     """
@@ -111,8 +147,14 @@ def not_bad(s):
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
     """
-    raise NotImplementedError
+    not_loc = s.find('not')
+    bad_loc = s.find('bad')
+    if not_loc > bad_loc:
+        return s
+    else:
+        return s[:not_loc]+'good'+s[bad_loc+3:]
 
+print(not_bad('this is not at all bad.'))
 
 def front_back(a, b):
     """
@@ -130,4 +172,15 @@ def front_back(a, b):
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
     """
-    raise NotImplementedError
+    def get_halves(s):
+        front_end = int(len(s)/2+len(s)%2)
+        front = s[:front_end]
+        back = s[front_end:]
+        return front, back
+    
+    a_halves = (get_halves(a))
+    b_halves = (get_halves(b))
+    
+    return a_halves[0]+b_halves[0]+a_halves[1]+b_halves[1]
+    
+print(front_back('kitten', 'donut'))

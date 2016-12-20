@@ -19,15 +19,22 @@ How are Python lists and tuples similar and different? Which will work as keys i
 
 How are Python lists and sets similar and different? Give examples of using both. How does performance compare between lists and sets for finding an element. Why?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> A set is an iterable with no repeating elements, a list can have repeating elements. Additionally, like dictionaries, sets are implemented using hash tables which for these purposes means that testing for membership is not affected by the size of the iterable- the computer does not have to iterate through each element in a set (unlike a list) to determine membership. Consequently, membership testing is significantly faster with sets than with lists.
 
+[row for row in csv] is an example of a list, and set([row for row in csv]) would contain each element (row) while excluding any duplicate instances.
 ---
 
 ###Q3. Lambda Function
 
 Describe Python's `lambda`. What is it, and what is it used for? Give at least one example, including an example of using a `lambda` in the `key` argument to `sorted`.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Lambda is an anonymous function and it allows you to quickly pass a function as an argument without formally def(ining) it. Incidentally I have an example of a lambda fx on the keys of a sorted dictionary sitting in my IDE right now; here is what it looks like:
+```python
+[new_item(v, a) for a, v in collections.OrderedDict(sorted(k.items(), key=lambda x: x[0])).items()]
+```
+where new_item is a function I needed to apply on a dictionary I needed ordered on its values.
+
+I would also like to note that lambda functions are particularly useful in conjunction with pandas' map and apply methods i.e. df.apply(lambda x: x*8-4+x**2).
 
 ---
 
@@ -35,7 +42,19 @@ Describe Python's `lambda`. What is it, and what is it used for? Give at least o
 
 Explain list comprehensions. Give examples and show equivalents with `map` and `filter`. How do their capabilities compare? Also demonstrate set comprehensions and dictionary comprehensions.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Comprehensions are the pythonic (and usually fastest, I believe) way to create iterables. map allows you to pass a function to every element in an iterable (creating another iterable if desired) and filter creates an iterable with every element of another iterable for which the function passed to filter returns true. Both of these methods can be accomplished without using map or filter via comprehensions. Examples:
+
+```python
+dans_list = [x+2 for x in row]
+dans_map = list(map(lambda x: x+2, row))
+
+dans_list = [x for x in row if (x**3)%1==0]
+dans_filter = filter(lambda x: (x**3)%1==0, row))
+
+dans_extra_comprehensive_list = [x+2 for x in row if (x**3)%1==0]
+dans_extra_comprehensive_set = {x+2 for x in row if (x**3)%1==0}
+dans_extra_comprehsnive_dict = {x: x+2 for x in row if (x**3)%1==0}
+```
 
 ---
 

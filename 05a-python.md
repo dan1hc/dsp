@@ -12,7 +12,8 @@ For quick and easy interactive practice with Python, many people enjoy [Codecade
 
 How are Python lists and tuples similar and different? Which will work as keys in dictionaries? Why?
 
->> They're similar in that they are visually similar data storage recepticles, and dissimilar in that tuples are immutable while lists are not. Resultantly, tuples work (and are often quite useful) as keys in a dictionary and lists will raise errors. On the other hand, lists can easily be modified, whereas tuples (afaik) can only be created or deleted. Should also be noted that tuples use less memory than lists as a result of immutability as well.
+>> They're similar in that they are visually similar data storage recepticles, and dissimilar in that tuples are immutable while lists are not. Resultantly, tuples work (and are often quite useful) as keys in a dictionary and lists will raise errors. On the other hand, lists can easily be modified, whereas tuples (afaik) can only be created or deleted. Should also be noted that tuples use less memory than lists as a result of immutability as well.  
+
 ---
 
 ###Q2. Lists &amp; Sets
@@ -20,7 +21,9 @@ How are Python lists and tuples similar and different? Which will work as keys i
 How are Python lists and sets similar and different? Give examples of using both. How does performance compare between lists and sets for finding an element. Why?
 
 >> A set is an iterable with no repeating elements, a list can have repeating elements. Additionally, like dictionaries, sets are implemented using hash tables which for these purposes means that testing for membership is not affected by the size of the iterable- the computer does not have to iterate through each element in a set (unlike a list) to determine membership. Consequently, membership testing is significantly faster with sets than with lists.
->> [row for row in csv] is an example of a list, and set([row for row in csv]) would contain each element (row) while excluding any duplicate instances.
+
+>> [row for row in csv] is an example of a list, and set([row for row in csv]) would contain each element (row) while excluding any duplicate instances.  
+
 ---
 
 ###Q3. Lambda Function
@@ -33,7 +36,7 @@ Describe Python's `lambda`. What is it, and what is it used for? Give at least o
 ```
 where new_item is a function I needed to apply on a dictionary I needed ordered on its values.
 
->> I would also like to note that lambda functions are particularly useful in conjunction with pandas' map and apply methods i.e. df.apply(lambda x: 8*x-4+x^2).
+>> I would also like to note that lambda functions are particularly useful in conjunction with pandas' map and apply methods i.e. df.apply(lambda x: 8*x-4+x^2).  
 
 ---
 
@@ -47,15 +50,17 @@ Explain list comprehensions. Give examples and show equivalents with `map` and `
 dans_list = [x+2 for x in row]
 dans_map = list(map(lambda x: x+2, row))
 ```
+
 ```python
-dans_list = [x for x in row if (x**3)%1==0]
-dans_filter = filter(lambda x: (x**3)%1==0, row))
+dans_list = [x for x in row if (x**3)%2==0]
+dans_filter = filter(lambda x: (x**3)%2==0, row))
 ```
+
 ```python
-dans_extra_comprehensive_list = [x+2 for x in row if (x**3)%1==0]
-dans_extra_comprehensive_set = {x+2 for x in row if (x**3)%1==0}
-dans_extra_comprehsnive_dict = {x: x+2 for x in row if (x**3)%1==0}
-```
+dans_extra_comprehensive_list = [x+2 for x in row if (x**3)%2==0]
+dans_extra_comprehensive_set = {x+2 for x in row if (x**3)%2==0}
+dans_extra_comprehsnive_dict = {x: x+2 for x in row if (x**3)%2==0}
+```  
 
 ---
 

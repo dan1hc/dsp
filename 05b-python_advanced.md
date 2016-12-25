@@ -66,7 +66,10 @@ faculty_dict = { 'Ellenberg': [['Ph.D.', 'Professor', 'sellenbe@upenn.edu'], ['P
 ```
 Print the first 3 key and value pairs of the dictionary:
 
->> REPLACE THIS WITH YOUR RESPONSE
+>> Gimotty [[' Ph.D', 'Professor of Biostatistics', 'pgimotty@upenn.edu']]
+Hubbard [[' PhD', 'Associate Professor of Biostatistics', 'rhubb@mail.med.upenn.edu']]
+Localio [[' JD MA MPH MS PhD', 'Associate Professor of Biostatistics', 'rlocalio@upenn.edu']]
+
 
 ####Q7.  The previous dictionary does not have the best design for keys.  Create a new dictionary with keys as:
 
@@ -76,11 +79,17 @@ professor_dict = {('Susan', 'Ellenberg'): ['Ph.D.', 'Professor', 'sellenbe@upenn
 
 Print the first 3 key and value pairs of the dictionary:
 
->> REPLACE THIS WITH YOUR RESPONSE
+>> ('Benjamin', 'French') [' PhD', 'Associate Professor of Biostatistics', 'bcfrench@mail.med.upenn.edu']
+('Mary', 'Sammel') [' Sc.D.', 'Professor of Biostatistics', 'msammel@cceb.med.upenn.edu']
+('Jonas', 'Ellenberg') [' Ph.D.', 'Professor of Biostatistics', 'jellenbe@mail.med.upenn.edu']
+
 
 ####Q8.  It looks like the current dictionary is printing by first name.  Print out the dictionary key value pairs based on alphabetical orders of the last name of the professors
 
->> REPLACE THIS WITH YOUR RESPONSE
+>> (('Scarlett', 'Bellamy'), [' Sc.D.', 'Associate Professor of Biostatistics', 'bellamys@mail.med.upenn.edu'])
+(('Warren', 'Bilker'), ['Ph.D.', 'Professor of Biostatistics', 'warren@upenn.edu'])
+(('Matthew', 'Bryan'), [' PhD', 'Assistant Professor of Biostatistics', 'bryanma@upenn.edu'])
+
 
 Place your code in this file: [advanced_python_dict.py](python/advanced_python_dict.py)
 

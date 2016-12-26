@@ -5,7 +5,28 @@ import sys
 csv_path = '/home/ec2usr/ds/metis/mteisgh/prework/dsp/python/faculty.csv'
 
 faculty_df = pd.read_csv(csv_path)
-faculty_df[' degree'] = faculty_df[' degree'].apply(lambda x: str(x).replace('.', '').lstrip())
+
+def dot_fix(w):
+    if len(w)>2:
+        w = ''.join('.'.join([w[:2], w[2:], '']))
+    return w
+    
+def re_dot(x):
+    return ' '.join([dot_fix(w) for w in x.split()])
+
+faculty_df[' degree'] = faculty_df[' degree'].apply(lambda x: str(x).replace('.', '').lstrip()).apply(re_dot)
+
+def of_change(w):
+    if w == 'is':
+        w = 'of'
+    return w
+    
+def is_fix(x):
+    if 'is' in set(x.split()):
+        x = ' '.join([of_change(w) for w in x.split()])
+    return x
+
+faculty_df[' title'] = faculty_df[' title'].apply(is_fix)
 
 def get_first_name(x):
     new_x = str(x).rsplit(None, 2)[0]

@@ -1,24 +1,41 @@
 import pandas as pd
+import collections
 
 csv_path = '/home/ec2usr/ds/metis/mteisgh/prework/dsp/python/faculty.csv'
 
 faculty_df = pd.read_csv(csv_path)
 
-# Q1 unique degrees and frequencies    
-faculty_df[' degree'] = faculty_df[' degree'].apply(lambda x: str(x).replace('.', '').lstrip())
+# Q1 unique degrees and frequencies
+def dot_fix(w):
+    if len(w)>2:
+        w = ''.join('.'.join([w[:2], w[2:], '']))
+    return w
+    
+def re_dot(x):
+    return ' '.join([dot_fix(w) for w in x.split()])
 
-faculty_df['degree freq'] = faculty_df.groupby(' degree')[' degree'].transform('count')
+faculty_df[' degree'] = faculty_df[' degree'].apply(lambda x: str(x).replace('.', '').lstrip()).apply(re_dot)
 
-uniques_df = faculty_df[[' degree', 'degree freq']].drop_duplicates(' degree')
-
-print(uniques_df)
+degrees = []
+for d in faculty_df[' degree']:
+    for w in d.split():
+        degrees.append(w)
+        
+print(collections.Counter(degrees))
 
 #Q2 titles
-faculty_df['title freq'] = faculty_df.groupby(' title')[' title'].transform('count')
+def of_change(w):
+    if w == 'is':
+        w = 'of'
+    return w
+    
+def is_fix(x):
+    if 'is' in set(x.split()):
+        x = ' '.join([of_change(w) for w in x.split()])
+    return x
 
-unique_titles_df = faculty_df[[' title', 'title freq']].drop_duplicates(' title')
-
-print(unique_titles_df)
+faculty_df[' title'] = faculty_df[' title'].apply(is_fix)
+print(collections.Counter(faculty_df[' title'].tolist()))
 
 #Q3 emails list
 emails = faculty_df[' email']

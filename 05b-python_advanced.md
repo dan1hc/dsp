@@ -21,7 +21,7 @@ This data is available in this file:  [faculty.csv](python/faculty.csv)
 
 >> 8 unique degrees, unless 0 is counted as a degree (I assume it is an indication of no formal degree).
 ```
-{'Ph.D.': 31, 'Sc.D.': 6, 'MS': 2, 'MPH.': 2, 'BS.Ed.': 1, '0': 1, 'MA': 1, 'JD': 1, 'MD': 1}
+{'Ph.D.': 31, 'Sc.D.': 6, 'MS': 2, 'MPH': 2, 'BS.Ed.': 1, '0': 1, 'MA': 1, 'JD': 1, 'MD': 1}
 ```
 
 ####Q2. Find how many different titles there are, and their frequencies:  Ex:  Assistant Professor, Professor

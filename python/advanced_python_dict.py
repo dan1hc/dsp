@@ -5,6 +5,7 @@ import sys
 csv_path = '/home/ec2usr/ds/metis/mteisgh/prework/dsp/python/faculty.csv'
 
 faculty_df = pd.read_csv(csv_path)
+faculty_df[' degree'] = faculty_df[' degree'].apply(lambda x: str(x).replace('.', '').lstrip())
 
 def get_first_name(x):
     new_x = str(x).rsplit(None, 2)[0]
@@ -44,7 +45,7 @@ for d in q_dicts[input_args]:
     try:
         print(d, q_dicts[input_args][d])
     except:
-        print(d)
+        print(d[0], d[1])
     br+=1
     if br>2:
         break

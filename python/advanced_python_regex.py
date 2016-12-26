@@ -4,25 +4,8 @@ csv_path = '/home/ec2usr/ds/metis/mteisgh/prework/dsp/python/faculty.csv'
 
 faculty_df = pd.read_csv(csv_path)
 
-
-# Q1 unique degrees and frequencies
-def degree_fix(x):
-    x = str(x)
-    # drop .'s
-    x = x.replace('.', '')
-    
-    if 'Ph' in x:
-        ph_loc = x.find('Ph')
-        ph_str = x[ph_loc:]
-        d_loc = ph_str.find('D')
-        new_x = ''.join([x[:ph_loc], 'PhD', x[d_loc+ph_loc+1:]])
-    
-    else:
-        pass
-    
-    return x
-    
-faculty_df[' degree'] = faculty_df[' degree'].apply(degree_fix)
+# Q1 unique degrees and frequencies    
+faculty_df[' degree'] = faculty_df[' degree'].apply(lambda x: str(x).replace('.', '').lstrip())
 
 faculty_df['degree freq'] = faculty_df.groupby(' degree')[' degree'].transform('count')
 

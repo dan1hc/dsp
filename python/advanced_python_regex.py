@@ -8,7 +8,8 @@ faculty_df = pd.read_csv(csv_path)
 # Q1 unique degrees and frequencies
 def dot_fix(w):
     if len(w)>2:
-        w = ''.join('.'.join([w[:2], w[2:], '']))
+        if w != 'MPH':
+            w = ''.join('.'.join([w[:2], w[2:], '']))
     return w
     
 def re_dot(x):

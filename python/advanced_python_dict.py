@@ -8,7 +8,8 @@ faculty_df = pd.read_csv(csv_path)
 
 def dot_fix(w):
     if len(w)>2:
-        w = ''.join('.'.join([w[:2], w[2:], '']))
+        if w != 'MPH':
+            w = ''.join('.'.join([w[:2], w[2:], '']))
     return w
     
 def re_dot(x):

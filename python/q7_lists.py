@@ -91,6 +91,7 @@ def remove_adjacent(nums):
 
 print(remove_adjacent([3, 2, 3, 3, 3]))
 
+import string
 def linear_merge(list1, list2):
     """
     Given two lists sorted in increasing order, create and return a
@@ -105,9 +106,28 @@ def linear_merge(list1, list2):
     >>> linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb'])
     ['aa', 'aa', 'aa', 'bb', 'bb']
     """
-    list1.extend(list2)
-    return sorted(list1)
+    output = []
+    count = int((len(list1)+len(list2))/2)+1
+    i=0
+    while i < count:
+        try:
+            entry1 = list1[i]
+            entry2 = list2[i]
+            if string.ascii_lowercase.index(entry1[0]) < string.ascii_lowercase.index(entry2[0]):
+                output.append(entry1)
+                output.append(entry2)
+            else:
+                output.append(entry2)
+                output.append(entry1)
+        except:
+            try:
+                output.append(list1[i])
+            except:
+                output.append(list2[i])
+        i+=1	
+    
+    return output
+#    list1.extend(list2)
+#    return sorted(list1)
     
 print(linear_merge(['aa', 'xx'], ['bb', 'cc', 'zz']))
-    
-    

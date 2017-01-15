@@ -19,3 +19,7 @@ wgt_d = cohen(first_borns.totalwgt_lb, siblings.totalwgt_lb)
 prg_d = cohen(first_borns.prglngth, siblings.prglngth)
 print(wgt_d, prg_d)
 ```
+```
+wgt_d = -0.088672363332
+prg_d = 0.0288790446544
+```
